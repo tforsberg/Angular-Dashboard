@@ -1,0 +1,32 @@
+<br>
+<br>
+<form class="example-form">
+  <mat-form-field  class="example-full-width">
+    <input placeholder="State" matInput [matAutocomplete]="Auto" name="state" #state="ngModel" [(ngModel)]="currentState"
+      (ngModelChange)="(option2 = filterState2(currentState,states,'name'))">
+  </mat-form-field>
+
+  <mat-autocomplete #Auto="matAutocomplete">
+    <mat-option *ngFor="let state of option2" [value]="state.name" (click)="object = state">
+      <img class="example-option-img" aria-hidden [src]="state.flag" height="25">
+      <span>{{state.name}}</span> |
+      <small>Population: {{state.population}}</small>
+    </mat-option>
+  </mat-autocomplete>
+</form>
+
+
+<form class="example-form">
+  <mat-form-field>
+    <input placeholder="State" matInput [matAutocomplete]="Auto2" name="state2" #state2="ngModel" [(ngModel)]="poblacion"
+      (ngModelChange)="(object2 = filterStateglobal(poblacion, states,'population'))">
+  </mat-form-field>
+
+  <mat-autocomplete #Auto2="matAutocomplete">
+    <mat-option *ngFor="let state of object2" [value]="state.population" (click)="object = state">
+      <span>{{ state.population }}</span>
+    </mat-option>
+  </mat-autocomplete>
+</form>
+
+<p>mi object mr: {{object | json}}</p>
