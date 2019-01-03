@@ -12,7 +12,6 @@ export class PruebaComponent implements OnInit {
   options: string[];
   states: Array<any>;
 
-
   option: any;
   option2: any;
 
@@ -41,14 +40,12 @@ export class PruebaComponent implements OnInit {
   filterStateglobal(val: string, object: any, propiedad: string) {
     if (val) {
       console.log(val);
-            
+
       return object.filter(state => state[propiedad].startsWith(val));
     }
     return object;
 
   }
-
-
 
   ngOnInit() {
     this.options = ['One', 'Two', 'Three'];
@@ -84,8 +81,8 @@ export class PruebaComponent implements OnInit {
     this.option2 = this.states;
     this.object2 = this.filterStateglobal('', this.states, 'population');
     // console.log("este es mi filtro nojoda", this.filterState2("Arkansas"));
-    console.log("jsdsd");
-    
+    console.log('jsdsd');
+
   }
 
 }
